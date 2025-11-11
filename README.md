@@ -1,6 +1,7 @@
 # Election Management System - DBMS Project
 
 A comprehensive database management system for managing elections, built with Flask and SQLite.
+Live: https://election-system-ro2d.onrender.com/
 
 **Team Members:**
 - Bhargavi Salunkhe
@@ -44,7 +45,7 @@ A comprehensive database management system for managing elections, built with Fl
 - **Database:** SQLite3
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript
 - **Visualization:** Chart.js
-- **Deployment:** Render / PythonAnywhere / Railway
+- **Deployment:** Render
 
 ## Project Structure
 
@@ -103,13 +104,6 @@ python app.py
 ```
 
 The application will start on `http://127.0.0.1:5000`
-
-### Step 5: Access the Application
-
-Open your browser and navigate to:
-```
-http://localhost:5000
-```
 
 ## Database Schema
 
@@ -176,85 +170,6 @@ http://localhost:5000
 ### Export
 - `GET /api/export/<table_name>` - Export table data as JSON
 
-## Deployment Options
-
-### Option 1: Render (Recommended - Free Tier Available)
-
-1. Create `requirements.txt`:
-```txt
-Flask==2.3.3
-Werkzeug==2.3.7
-```
-
-2. Create `render.yaml`:
-```yaml
-services:
-  - type: web
-    name: election-system
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.9.0
-```
-
-3. Steps:
-   - Create account on [Render.com](https://render.com)
-   - Connect your GitHub repository
-   - Create new "Web Service"
-   - Select your repository
-   - Use these settings:
-     - **Build Command:** `pip install -r requirements.txt`
-     - **Start Command:** `python app.py`
-   - Click "Create Web Service"
-
-### Option 2: PythonAnywhere (Free Tier)
-
-1. Create account on [PythonAnywhere.com](https://www.pythonanywhere.com)
-2. Upload your files via "Files" tab
-3. Create a new web app (Flask, Python 3.x)
-4. Configure WSGI file to point to your app.py
-5. Reload the web app
-
-### Option 3: Railway (Free Trial)
-
-1. Create account on [Railway.app](https://railway.app)
-2. Click "New Project" → "Deploy from GitHub repo"
-3. Select your repository
-4. Railway will auto-detect Flask and deploy
-5. Click on the deployment to get your URL
-
-### Option 4: Heroku (Paid)
-
-1. Create `Procfile`:
-```
-web: python app.py
-```
-
-2. Deploy:
-```bash
-heroku login
-heroku create your-app-name
-git push heroku main
-```
-
-## Important Notes
-
-### Why NOT GitHub Pages?
-
-❌ **GitHub Pages does NOT support:**
-- Python/Flask applications
-- Backend processing
-- Database operations
-- Server-side code
-
-✅ **GitHub Pages ONLY supports:**
-- Static HTML/CSS/JavaScript
-- No backend/database
-
-**Solution:** Use Render, PythonAnywhere, or Railway instead.
-
 ### Database Persistence
 
 - SQLite database (`election.db`) is created automatically on first run
@@ -276,10 +191,6 @@ app.config['SECRET_KEY'] = 'your-random-secret-key-here'
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
 ```
-
-3. Consider adding authentication for sensitive operations
-
-4. Use environment variables for sensitive configuration
 
 ## Usage Guide
 
@@ -328,32 +239,6 @@ Execute pre-defined analytical queries:
 5. Top 3 candidates by vote count
 6. Voter turnout by election
 
-## Troubleshooting
-
-### Port Already in Use
-```bash
-# Change port in app.py
-app.run(debug=True, host='0.0.0.0', port=5001)
-```
-
-### Database Errors
-```bash
-# Delete and recreate database
-rm election.db
-python app.py
-```
-
-### Module Not Found
-```bash
-# Reinstall dependencies
-pip install -r requirements.txt
-```
-
-### Chart Not Displaying
-- Check browser console for errors
-- Ensure Chart.js CDN is accessible
-- Clear browser cache
-
 ## Sample Data
 
 The application comes pre-loaded with sample data:
@@ -375,23 +260,5 @@ The application comes pre-loaded with sample data:
 - Multi-language support
 - Mobile application
 - Blockchain integration for vote verification
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues.
-
-## License
-
-This project is created for educational purposes as part of a DBMS course project.
-
-## Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review API documentation
-3. Open an issue on GitHub
-4. Contact team members
-
----
 
 **Built with ❤️ by Bhargavi Salunkhe, Sakshi Patil, and Shivanjali Pawar**
